@@ -3,16 +3,25 @@
 }
 h1{
 	text-align:center;
+	color:white;
 }
 header{
 	display:grid;
 	grid-template-columns:0.1fr 9.9fr;
 	grid-area: head;
+	background:url("https://cdn.pixabay.com/photo/2020/02/22/17/53/communication-4871245_960_720.jpg");
+	background-position: center;
 }
 header div{
 	text-align:center;
-	background-color:rgb(140,140,140);
+	background-color:rgb(0,0,0);
 	padding:5px;
+}
+header a{
+	text-decoration:none;
+	color:white;
+	display:block;
+	padding:20px;
 }
 #meny{
 	display:grid;
@@ -21,6 +30,12 @@ header div{
 }
 #meny div{
 	text-align:center;
-	background-color:rgb(140,140,140);
+	background-color:rgb(0,0,0);
 	padding:5px;
+}
+#meny a{
+	display:block;
+	text-decoration:none;
+	color: white;
+	padding:4px;
 }
