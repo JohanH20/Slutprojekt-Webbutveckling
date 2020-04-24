@@ -1,9 +1,16 @@
 #wrapperIndex{
-	
+	display:grid;
+	grid-gap:3px;
+	grid-template-columns: 0.5fr 1fr 1fr;
+	grid-template-areas:
+	"head head head"
+	"nav nav nav"
+	"formulärochlista mitten bild";
 }
 h1{
-	text-align:center;
 	color:white;
+	text-align: center;
+	margin-right: 9%;
 }
 header{
 	display:grid;
@@ -23,6 +30,10 @@ header a{
 	display:block;
 	padding:20px;
 }
+header a:hover{
+	background-color:white;
+	color:black;
+}
 #meny{
 	display:grid;
 	grid-template-columns:1fr 1fr 1fr 1fr;
@@ -31,11 +42,38 @@ header a{
 #meny div{
 	text-align:center;
 	background-color:rgb(0,0,0);
-	padding:5px;
 }
 #meny a{
 	display:block;
 	text-decoration:none;
 	color: white;
-	padding:4px;
+	padding:10px;
+}
+#meny a:hover{
+	color: black;
+	background-color: white;
+}
+#formulärochlista{
+	display:grid;
+	grid-template-columns:1fr;
+	grid-area: formulärochlista;
+}
+#formulärochlista div{
+	text-align:center;
+	background-color:#0033cc;
+}
+#formulärochlista a{
+	text-decoration:none;
+	display:block;
+	color: white;
+	padding:5px;
+}
+#formulärochlista a:hover{
+	background-color:black;
+}
+#mittenindex{
+	grid-area:mitten;
+}
+#bildindex{
+	grid-area:bild;
 }
