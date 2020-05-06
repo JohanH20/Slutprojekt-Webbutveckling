@@ -1,15 +1,15 @@
 #wrapperIndex{
 	display:grid;
 	grid-gap:3px;
-	grid-template-columns: 0.5fr 1fr 1fr;
+	grid-template-columns: 0.5fr 1fr 0.8fr;
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
 	"formulärochlista mitten bild";
 }
-h1{
+#hmeny{
 	color:white;
-	text-align: center;
+	text-align:center;
 	margin-right: 9%;
 }
 header{
@@ -54,8 +54,6 @@ header a:hover{
 	background-color: white;
 }
 #formulärochlista{
-	display:grid;
-	grid-template-columns:1fr;
 	grid-area: formulärochlista;
 }
 #formulärochlista div{
@@ -71,9 +69,32 @@ header a:hover{
 #formulärochlista a:hover{
 	background-color:black;
 }
+#indexlistarubrik{
+	text-align:center;
+}
+#teknikområden li{
+	font-size:20px;
+}
 #mittenindex{
 	grid-area:mitten;
 }
+#underrubrikindex{
+	text-align:center;
+}
 #bildindex{
 	grid-area:bild;
+}
+#shard{
+	width:100%;
+	height:100%;
+}
+@media screen and (max-width:600px){
+	#wrapperIndex{
+		grid-template-areas:
+		"head head head"
+		"nav nav nav"
+		"formulärochlista formulärochlista formulärochlista"
+		"mitten mitten mitten"
+		"bild bild bild";
+	}
 }
