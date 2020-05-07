@@ -1,16 +1,29 @@
+body{
+	background-color:black;
+}
+footer{
+	background-color:rgb(20,20,20);
+	text-align:center;
+	color:white;
+	padding:5px;
+	grid-area:Footer;
+}
 #wrapperIndex{
 	display:grid;
-	grid-gap:3px;
+	grid-gap:10px;
 	grid-template-columns: 0.5fr 1fr 0.8fr;
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"formulärochlista mitten bild";
+	"formulärochlista mitten bild"
+	"Footer Footer Footer";
 }
 #hmeny{
 	color:white;
 	text-align:center;
 	margin-right: 9%;
+	font-family:Menyer, sans-serif;
+	font-size:35px;
 }
 header{
 	display:grid;
@@ -26,9 +39,10 @@ header div{
 }
 header a{
 	text-decoration:none;
+	font-family:Menyer, sans-serif;
 	color:white;
 	display:block;
-	padding:20px;
+	padding:30px;
 }
 header a:hover{
 	background-color:white;
@@ -45,6 +59,8 @@ header a:hover{
 }
 #meny a{
 	display:block;
+	font-family:Menyer, sans-serif;
+	font-size:20px;
 	text-decoration:none;
 	color: white;
 	padding:10px;
@@ -55,10 +71,12 @@ header a:hover{
 }
 #formulärochlista{
 	grid-area: formulärochlista;
+	padding:5px;
+	background-color: rgba(203,203,203,0.8);
 }
 #formulärochlista div{
 	text-align:center;
-	background-color:#0033cc;
+	background-color:#000000;
 }
 #formulärochlista a{
 	text-decoration:none;
@@ -67,7 +85,8 @@ header a:hover{
 	padding:5px;
 }
 #formulärochlista a:hover{
-	background-color:black;
+	background-color:white;
+	color:black;
 }
 #indexlistarubrik{
 	text-align:center;
@@ -77,9 +96,15 @@ header a:hover{
 }
 #mittenindex{
 	grid-area:mitten;
+	text-align:center;
+	background-color:rgb(40,40,40);
+}
+#mittenindex p{
+	color: white;
 }
 #underrubrikindex{
 	text-align:center;
+	color:white;
 }
 #bildindex{
 	grid-area:bild;
@@ -93,8 +118,17 @@ header a:hover{
 		grid-template-areas:
 		"head head head"
 		"nav nav nav"
-		"formulärochlista formulärochlista formulärochlista"
 		"mitten mitten mitten"
-		"bild bild bild";
+		"formulärochlista formulärochlista formulärochlista"
+		"bild bild bild"
+		"Footer Footer Footer";
 	}
+}
+@font-face{
+	font-family:Menyer;
+	src: url('Righteous-Regular.ttf');
+}
+@font-face{
+	font-family:8bitar;
+	src: url('PressStart2P-Regular.ttf');
 }
