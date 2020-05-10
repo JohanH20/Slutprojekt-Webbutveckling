@@ -1,3 +1,19 @@
+@font-face{
+	font-family:Menyer;
+	src: url('Righteous-Regular.ttf');
+}
+@font-face{
+	font-family:bitar;
+	src: url('PressStart2P-Regular.ttf');
+}
+@keyframes teslakör{
+	from{
+		right:0%;
+	}
+	to{
+		right:305%;
+	}
+}
 body{
 	background-color:black;
 }
@@ -44,7 +60,7 @@ footer{
 	display:block;
 	padding:30px;
 }
-#MainHeader a:hover{
+#MainHeader a:hover, #MainHeader a:focus{
 	background-color:white;
 	color:black;
 }
@@ -65,34 +81,35 @@ footer{
 	color: white;
 	padding:10px;
 }
-#meny a:hover{
+#meny a:hover, #meny a:focus{
 	color: black;
 	background-color: white;
 }
-#formulärochlista, #lokalmenyAI{
+#formulärochlista, #lokalmenyAI, #lokalmenyDatorer, #lokalmenyMobilerochbild, #lokalmenyMerOmMobilerochlista{
 	grid-area: lokalmeny;
-	padding:5px;
+	padding:0.5vw;
 	background-color: rgba(203,203,203,0.8);
 }
-#formulärochlista div, #lokalmenyAI div{
+#formulärochlista div, #lokalmenyAI div, #lokalmenyDatorer div, #lokalmenyMobilerochbild div, #lokalmenyMerOmMobilerochlista div{
 	text-align:center;
 	background-color:#000000;
 }
-#formulärochlista a, #lokalmenyAI a{
+#formulärochlista a, #lokalmenyAI a, #lokalmenyDatorer a, #lokalmenyMobilerochbild a, #lokalmenyMerOmMobilerochlista a{
 	text-decoration:none;
 	display:block;
 	color: white;
-	padding:5px;
+	padding:0.5em;
 }
-#formulärochlista a:hover, #lokalmenyAI a:hover{
+#formulärochlista a:hover, #lokalmenyAI a:hover, #lokalmenyDatorer a:hover, #lokalmenyMobilerochbild a:hover, #lokalmenyMerOmMobilerochlista a:hover, #formulärochlista a:focus, #lokalmenyAI a:focus, #lokalmenyDatorer a:focus, #lokalmenyMobilerochbild a:focus, #lokalmenyMerOmMobilerochlista a:focus{
 	background-color:white;
 	color:black;
 }
-#indexlistarubrik{
+/*Använde en syskonselektor för att sätta h2 i mitten*/
+#formulärochlista div ~ h2{
 	text-align:center;
 }
 #teknikområden li{
-	font-size:20px;
+	font-size:1.5rem;
 }
 #mittenindex{
 	grid-area:indexmitten;
@@ -101,26 +118,22 @@ footer{
 }
 #mittenindex p{
 	color: white;
-	margin:5px;
+	margin:0.5vw;
 }
-#underrubrikindex{
-	text-align:center;
+/*Gör så att länken är vit när den har varit besökt och innan*/
+#mittenindex a:visited, a:link{
 	color:white;
+}
+/*Gör så att länken är grå när man håller över den och när den klickas*/
+#mittenindex a:hover, a:active{
+	color:grey;
 }
 #bildindex{
 	grid-area:indexbild;
-	display:block;
 }
-#raket{
+#bildindex > img{
 	width:100%;
-}
-@font-face{
-	font-family:Menyer;
-	src: url('Righteous-Regular.ttf');
-}
-@font-face{
-	font-family:bitar;
-	src: url('PressStart2P-Regular.ttf');
+	border-radius:3em;
 }
 #HFormulär{
 	color:white;
@@ -137,7 +150,7 @@ footer{
 	grid-area:Mainformulär;
 	text-align:center;
 }
-#mainFormulär section{
+#mainFormulär div{
 	margin:2%;
 }
 #mainFormulär label, #LegUppgifter, #LegFeedback{
@@ -169,20 +182,20 @@ footer{
 #BildochtextAI{
 	grid-area:BildOchTextAI;
 }
-#BildochtextAI figcaption{
+#BildochtextAI figcaption, #teslaBild figcaption{
 	color:white;
 }
 #Atlas{
 	width:100%;
 }
-#artikelAI h1, #artikelAI p{
+#mittenindex, #artikelAI, #mainMerOmAI, #bilText, #datorerText, #codochtextMerOmDatorer, #textMobiler, #textMerOmMobiler{
 	color:white;
 	text-align:center;
 }
-#artikelAI h1{
+#mainMerOmAI h2, #artikelAI h2{
 	font-family: bitar , sans-serif;
 }
-#artikelAI p::first-letter, #mittenindex p::first-letter{
+#mittenindex p::first-letter, #mainMerOmAI p::first-letter, #artikelAI p::first-letter, #bilText p::first-letter, #datorerText p::first-letter, #codochtextMerOmDatorer p::first-letter, #textMobiler p::first-letter, #textMerOmMobiler p::first-letter{
 	font-size:30px;
 }
 #wrapperMerOmAI{
@@ -197,6 +210,147 @@ footer{
 }
 #mainMerOmAI{
 	grid-area:MainMerOmAI;
+	background-color:rgb(40,40,40);
+}
+#autopilotVideo{
+	grid-area:YoutubeTesla;
+	background-color: rgba(203,203,203,0.8);
+}
+#autopilotVideo iframe{
+	width:90%;
+	height:80%;
+	margin:5%;
+}
+#bilText{
+	grid-area:BilText;
+	padding:5px;
+	background-color:rgb(40,40,40);
+}
+#teslaBild{
+	grid-area:TeslaBild;
+}
+#tesla{
+	width:100%;
+	border-radius:2em;
+	position:relative;
+}
+#tesla:hover{
+	animation:teslakör 5s;
+}
+#wrapperSjälvkörandebilar{
+	display:grid;
+	grid-gap:10px;
+	grid-template-columns: 0.8fr 1fr 0.8fr;
+	grid-template-areas:
+	"head head head"
+	"nav nav nav"
+	"YoutubeTesla BilText TeslaBild"
+	"Footer Footer Footer";
+}
+#lokalmenyDatorer ul{
+	list-style-type:none;
+	margin-right:10%;
+}
+#datorerText{
+	grid-area:DatorerText;
+	padding:0.5vw;
+	background-color:rgb(40,40,40);
+}
+#datorerTabell{
+	grid-area:DatorerTabell;
+	border:3px solid;
+	color:white;
+	border-collapse:collapse;
+}
+#datorerTabell th, td{
+	border: 3px solid;
+	padding:2ex;
+	vertical-align:top;
+	text-align:center;
+}
+#datorerTabell tr:nth-child(even), #datorerTabell thead, #datorerTabell tfoot{
+	background-color:hsla(0,0%,50%,1);
+}
+#wrapperDatorer{
+	display:grid;
+	grid-gap:10px;
+	grid-template-columns: 0.5fr 1.3fr 0.5fr;
+	grid-template-areas:
+	"head head head"
+	"nav nav nav"
+	"lokalmeny DatorerText DatorerTabell"
+	"Footer Footer Footer";
+}
+#codochtextMerOmDatorer{
+	grid-area:CODOchTextMerOmDatorer;
+	padding:5px;
+	background-color:rgb(40,40,40);
+}
+#cod{
+	width:60%;
+	transition:width 2s;
+}
+#cod:hover{
+	width:100%;
+}
+#wrapperMerOmDatorer{
+	display:grid;
+	grid-gap:10px;
+	grid-template-columns: 0.5fr 1.8fr;
+	grid-template-areas:
+	"head head"
+	"nav nav"
+	"lokalmeny CODOchTextMerOmDatorer"
+	"Footer Footer";
+}
+#textMobiler{
+	grid-area:TextMobiler;
+	background-color:rgb(40,40,40);
+	padding:5px;
+}
+#bildMobiler{
+	grid-area:BildMobiler;
+}
+#iphonex{
+	width:100%;
+}
+#gammalmobil{
+	width:90%;
+	margin:5%;
+}
+#wrapperMobiler{
+	display:grid;
+	grid-gap:10px;
+	grid-template-columns: 0.5fr 1.3fr 0.5fr;
+	grid-template-areas:
+	"head head head"
+	"nav nav nav"
+	"lokalmeny TextMobiler BildMobiler"
+	"Footer Footer Footer";
+}
+#lokalmenyMerOmMobilerochlista div + h2{
+	text-align:center;
+}
+#textMerOmMobiler{
+	grid-area:TextMerOmMobiler;
+	background-color:rgb(40,40,40);
+	padding:5px;
+}
+#bildMerOmMobiler{
+	grid-area:BildMerOmMobiler;
+}
+#bildsmartphone{
+	width:100%;
+}
+#wrapperMerOmMobiler{
+	display:grid;
+	grid-gap:10px;
+	grid-template-columns: 0.5fr 1.3fr 0.5fr;
+	grid-template-areas:
+	"head head head"
+	"nav nav nav"
+	"lokalmeny TextMerOmMobiler BildMerOmMobiler"
+	"Footer Footer Footer";
 }
 @media screen and (max-width:600px){
 	#wrapperIndex{
@@ -226,6 +380,55 @@ footer{
 		"nav"
 		"lokalmeny"
 		"MainMerOmAI"
+		"Footer";
+	}
+	#wrapperSjälvkörandebilar{
+		grid-template-columns:1fr;
+		grid-template-areas:
+		"head"
+		"nav"
+		"BilText"
+		"YoutubeTesla"
+		"TeslaBild"
+		"Footer";
+	}
+	#wrapperDatorer{
+		grid-template-columns:1fr;
+		grid-template-areas:
+		"head"
+		"nav"
+		"lokalmeny"
+		"DatorerText"
+		"DatorerTabell"
+		"Footer";
+	}
+	#wrapperMerOmDatorer{
+		grid-template-columns:1fr;
+		grid-template-areas:
+		"head"
+		"nav"
+		"lokalmeny"
+		"CODOchTextMerOmDatorer"
+		"Footer";
+	}
+	#wrapperMobiler{
+		grid-template-columns:1fr;
+		grid-template-areas:
+		"head"
+		"nav"
+		"lokalmeny"
+		"TextMobiler"
+		"BildMobiler"
+		"Footer";
+	}
+	#wrapperMerOmMobiler{
+		grid-template-columns:1fr;
+		grid-template-areas:
+		"head"
+		"nav"
+		"lokalmeny"
+		"TextMerOmMobiler"
+		"BildMerOmMobiler"
 		"Footer";
 	}
 }

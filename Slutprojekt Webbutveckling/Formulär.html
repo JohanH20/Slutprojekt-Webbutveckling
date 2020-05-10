@@ -15,67 +15,71 @@
 				<form action="Index.html" method="post">
 					<fieldset>
 						<legend id="LegUppgifter">Uppgifter</legend>
-						<section id="Förnamn">
+						<div id="Förnamn">
 							<label for="fnamn">Förnamn:</label>
 							<input type="text" id="fnamn" name="fnamn" value="" required>
-						</section>
-						<section id="Efternamn">
+						</div>
+						<div id="Efternamn">
 							<label for="enamn">Efternamn:</label>
 							<input type="text" id="enamn" name="enamn" value="" required>
-						</section>
-						<section id="Kön">
+						</div>
+						<div id="Kön">
 							<input type="radio" id="man" name="kön" value="man">
 							<label for="man">Man</label>
 							<input type="radio" id="kvinna" name="kön" value="kvinna">
 							<label for="kvinna">Kvinna</label>
 							<input type="radio" id="annat" name="kön" value="annat">
 							<label for="annat">Annat</label>
-						</section>
-						<section id="email">
+						</div>
+						<div id="Längd">
+							<label for="längden">Din längd i cm:</label>
+							<input type="number" id="längden" name="längd" value="" min="50" max="300" placeholder="180">
+						</div>
+						<div id="Email">
 							<label for="email">Email:</label>
 							<input type="email" id="email" name="mail" value="" placeholder="stefan@gmail.com" required>
-						</section>
-						<section id="lösen">
+						</div>
+						<div id="lösen">
 							<label for="lösenord">Lösenord:</label>
 							<input type="password" id="lösenord" name="lösenord" value="" required>
-						</section>
-						<section id="nummer">
+						</div>
+						<div id="nummer">
 							<label for="num">Telefonnummer:</label>
 							<input type="tel" id="num" name="telefon" placeholder="46 12 345 67 89" pattern="[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}">
-						</section>
-						<section id="konto">
+						</div>
+						<div id="konto">
 							<input type="checkbox" id="fmejl" name="uppdateringar" value="uppdateringar" checked>
 							<label for="fmejl">Jag vill få mejl om hemsidans uppdateringar</label><br>
 							<input type="checkbox" id="TOmråden" name="tekniskaområden" value="tekniskaområden">
 							<label for="TOmråden">Jag vill få mejl om nya tekniskaområden</label>
-						</section>
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend id="LegFeedback">Feedback</legend>
-						<section id="feedback">
+						<div id="feedback">
 							<label for="fbk">Feedback om hemsidan:</label><br>
 							<textarea name="kritik" id="fbk" rows="10" cols="30"></textarea>
-						</section>
-						<section id="gilla">
+						</div>
+						<div id="gilla">
 							<label for="gillar">Hur mycket gillar du hemsidan</label>
-							<select id="gillar">
+							<select name="Gillar" id="gillar">
 								<option value="Väldigt mycket">Väldigt mycket</option>
 								<option value="mycket">Mycket</option>
 								<option value="ganska" selected>Ganska</option>
 								<option value="inte">Gillar inte den</option>
 								<option value="verkligeninte">Verkligen inte</option>
 							</select>
-						</section>
+						</div>
 					</fieldset>
-					<section id="Klar">
+					<div id="Klar">
 						<input type="submit" formnovalidate="formnovalidate" value="Avbryt">
 						<input type="submit" value="Skapa kontot">
-					</section>
+					</div>
 				</form>
 			</main>
 		</div>
+		<footer>
+			<p>Webbutvecklingsprojekt<br/>Skapat av: Johan Hasselblad</p>
+		</footer>
 	</body>
-	<footer>
-		<p>Webbutvecklingsprojekt<br/>Skapat av: Johan Hasselblad</p>
-	</footer>
 </html>
