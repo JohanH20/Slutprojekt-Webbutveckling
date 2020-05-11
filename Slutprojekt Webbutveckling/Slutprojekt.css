@@ -8,10 +8,10 @@
 }
 @keyframes teslakör{
 	from{
-		right:0%;
+		right:0vw;
 	}
 	to{
-		right:305%;
+		right:100vw;
 	}
 }
 body{
@@ -130,6 +130,7 @@ footer{
 }
 #bildindex{
 	grid-area:indexbild;
+	text-align:center;
 }
 #bildindex > img{
 	width:100%;
@@ -430,5 +431,8 @@ footer{
 		"TextMerOmMobiler"
 		"BildMerOmMobiler"
 		"Footer";
+	}
+	#tesla:hover{
+	animation:teslakör 2s;
 	}
 }
