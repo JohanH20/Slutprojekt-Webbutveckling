@@ -1,11 +1,15 @@
+/*Font face gör så att jag kan välja ett nedladdat typsnitt*/
 @font-face{
+	/*Jag sätter in mitt egna typsnitt i en font family*/
 	font-family:Menyer;
+	/*Jag väljer vilket typsnitt som jag ska använda*/
 	src: url('Righteous-Regular.ttf');
 }
 @font-face{
 	font-family:bitar;
 	src: url('PressStart2P-Regular.ttf');
 }
+/*Jag skapar en animation som heter teslakör och åker från högra sidan av skärmen till vänstra*/
 @keyframes teslakör{
 	from{
 		right:0vw;
@@ -14,20 +18,32 @@
 		right:100vw;
 	}
 }
+/*Jag gör så att alla av typen body har en svart bakgrund med en typ selektor*/
 body{
 	background-color:black;
 }
+/*Gör ändringar för alla av typen footer*/
 footer{
+	/*Gör så att bakgrunden på footer är mörkgrå med rgb färger*/
 	background-color:rgb(20,20,20);
+	/*All text inom footer är i mitten av footer*/
 	text-align:center;
+	/*Gör så att all text i footer är vit*/
 	color:white;
+	/*Gör så att elementen i footer har 5 pixlar i padding åt alla håll*/
 	padding:5px;
+	/*Gör så att footer har en grid area som heter Footer*/
 	grid-area:Footer;
 }
+/*Gör ändringar för detta id med en id selektor*/
 #wrapperIndex{
+	/*Gör så att den visar sin grid om den har en*/
 	display:grid;
+	/*Gör så att det är 10 pixlars mellanrum mellan alla areor i griden*/
 	grid-gap:10px;
+	/*Gör så att griden har tre spalter fr är en relativ måttenhet för css-grid och 1fr är 1 fraction som ungefär betyder 1 del*/
 	grid-template-columns: 0.5fr 1fr 0.8fr;
+	/*Gör så att detta elementet har en grid med olika grid areor som har dessa specifika platserna i griden*/
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
@@ -37,29 +53,39 @@ footer{
 #hmeny{
 	color:white;
 	text-align:center;
+	/*Gör så att elementet är 9% längre ifrån högra sidan av sitt föräldrar-element*/
 	margin-right: 9%;
+	/*Gör så att texten först och främst använder Menyer som font men om den inte är nedladdad så används sans-serif*/
 	font-family:Menyer, sans-serif;
+	/*Gör så att storleken på texten är 35 pixlar*/
 	font-size:35px;
 }
 #MainHeader{
 	display:grid;
 	grid-template-columns:0.1fr 9.9fr;
 	grid-area: head;
+	/*Gör så att bakgrunden för detta elementet är en bild*/
 	background:url("https://cdn.pixabay.com/photo/2020/02/22/17/53/communication-4871245_960_720.jpg");
+	/*Gör så att bakgrundens position är i mitten av elementet*/
 	background-position: center;
 }
+/*Gör så att alla div avkommor från id elementet är enligt följande krav, en så kallad avkomlingsselektor*/
 #MainHeader div{
 	text-align:center;
 	background-color:rgb(0,0,0);
 	padding:5px;
 }
+/*Gör så att alla länkar inom idt har dessa css egenskaperna*/
 #MainHeader a{
+	/*Texten har ingen dekoration t.ex. så att en länk inte är blå om man inte har besökt sidan innan*/
 	text-decoration:none;
 	font-family:Menyer, sans-serif;
 	color:white;
+	/*Den gör så att länkarna blir block som fyller hela rektangeln som är länkens område. Detta gör jag för att man inte ska behöva klicka exakt på texten utan också på området runt om och ändå klicka på länken*/
 	display:block;
 	padding:30px;
 }
+/*Gör ändringar för när man håller över länken med musen eller om man har fokus på länken med tangentbordet*/
 #MainHeader a:hover, #MainHeader a:focus{
 	background-color:white;
 	color:black;
@@ -85,6 +111,7 @@ footer{
 	color: black;
 	background-color: white;
 }
+/*Gör samma ändringar för flera olika id element samtidigt. För att inte behöva skriva exakt samma kod flera gånger. Med en gruppselektor*/
 #formulärochlista, #lokalmenyAI, #lokalmenyDatorer, #lokalmenyMobilerochbild, #lokalmenyMerOmMobilerochlista{
 	grid-area: lokalmeny;
 	padding:0.5vw;
@@ -108,7 +135,9 @@ footer{
 #formulärochlista div ~ h2{
 	text-align:center;
 }
+/*Gör så att alla list items inom idt har dessa egenskaperna*/
 #teknikområden li{
+	/*Textens storlek är 1.5 rem som är 1.5 gånger storleken av rot-elementet*/
 	font-size:1.5rem;
 }
 #mittenindex{
@@ -118,9 +147,10 @@ footer{
 }
 #mittenindex p{
 	color: white;
+	/*Gör så att texten inom idt har marginal på 0.5 vw åt alla håll, 0.5vw är 0.5% av skärmens bredd åt*/
 	margin:0.5vw;
 }
-/*Gör så att länken är vit när den har varit besökt och innan*/
+/*Gör så att länken är vit när den har varit besökt och innan den har blivit besökt*/
 #mittenindex a:visited, a:link{
 	color:white;
 }
@@ -132,8 +162,11 @@ footer{
 	grid-area:indexbild;
 	text-align:center;
 }
+/*Barnselektor för att alla biler som är inuti idts element ska ha följande egenskaper.*/
 #bildindex > img{
+	/*Gör så att bildens bredd är 100% av föräldrar-elements bredd.*/
 	width:100%;
+	/*Gör så att bilden har rundade hörn som har radien 3 em som är 300% av typsnittets höjd*/
 	border-radius:3em;
 }
 #HFormulär{
@@ -146,15 +179,16 @@ footer{
 	padding:2px;
 	grid-area: Formulärheader;
 }
-#mainFormulär{
+/*Använde en class selektor för att göra ändringar på mainFormulär*/
+.mainFormulär{
 	background-color:rgb(40,40,40);
 	grid-area:Mainformulär;
 	text-align:center;
 }
-#mainFormulär div{
+.mainFormulär div{
 	margin:2%;
 }
-#mainFormulär label, #LegUppgifter, #LegFeedback{
+.mainFormulär label, #LegUppgifter, #LegFeedback{
 	color:white;
 }
 #wrapperFormulär{
@@ -215,8 +249,10 @@ footer{
 }
 #autopilotVideo{
 	grid-area:YoutubeTesla;
+	/*Anvädnder rgba för att välja färgen på bakgrunden rgba står för Red Green Blue Alpha och alpha är genomskinlighet där 0 är helt genomskinlig och 1 är helt synlig*/
 	background-color: rgba(203,203,203,0.8);
 }
+/*Gör ändringar för iframe som är i idt*/
 #autopilotVideo iframe{
 	width:90%;
 	height:80%;
@@ -233,9 +269,12 @@ footer{
 #tesla{
 	width:100%;
 	border-radius:2em;
+	/*Gör så att positionen inte är fast utan kan ändras. Detta behöver jag på bilden för att kunna använda min teslakör animation som jag gjorde i början av css filen*/
 	position:relative;
 }
+/*När man håller musen över bilden*/
 #tesla:hover{
+	/*Detta gör så att om du håller musen över bilden så körs animationen (teslakör) under en period på 5 sekunder*/
 	animation:teslakör 5s;
 }
 #wrapperSjälvkörandebilar{
@@ -249,6 +288,7 @@ footer{
 	"Footer Footer Footer";
 }
 #lokalmenyDatorer ul{
+	/*Gör så att listan inte har några markeringar som t.ex. de romerska siffrorna jag har på första sidans lista*/
 	list-style-type:none;
 	margin-right:10%;
 }
@@ -259,17 +299,22 @@ footer{
 }
 #datorerTabell{
 	grid-area:DatorerTabell;
+	/*Gör så att tabellen har en ram som är en heltäckt linje och 3 pixlar bred.*/
 	border:3px solid;
 	color:white;
+	/*Gör så att olika ramar sätts ihop så att det ser ut som samma ram*/
 	border-collapse:collapse;
 }
 #datorerTabell th, td{
 	border: 3px solid;
 	padding:2ex;
+	/*Gör så att texten är i toppen och mitten av varje tabell del*/
 	vertical-align:top;
 	text-align:center;
 }
+/*Gör så att alla jämna tabell raden och thead och tfoot har samma bakgrundsfärg*/
 #datorerTabell tr:nth-child(even), #datorerTabell thead, #datorerTabell tfoot{
+	/*Använde hsla för att bestämma bakgrundsfärgen hsla står för Hue Saturation Lightness Alpha där alpha betyder samma som på rgba*/
 	background-color:hsla(0,0%,50%,1);
 }
 #wrapperDatorer{
@@ -289,6 +334,7 @@ footer{
 }
 #cod{
 	width:60%;
+	/*Gör en transition för att göra videon bredare tills den blir 100% av föräldrar-elements bredd och det ska ta 2 sekunder att göra transitionen*/
 	transition:width 2s;
 }
 #cod:hover{
@@ -329,6 +375,7 @@ footer{
 	"lokalmeny TextMobiler BildMobiler"
 	"Footer Footer Footer";
 }
+/*Anvädnder angränsande syskonselektor för att sätta texten i mitten på h2*/
 #lokalmenyMerOmMobilerochlista div + h2{
 	text-align:center;
 }
@@ -353,6 +400,7 @@ footer{
 	"lokalmeny TextMerOmMobiler BildMerOmMobiler"
 	"Footer Footer Footer";
 }
+/*Om skärmens bredd är mindre än 600px bred så gör den följande sakerna. Som i detta fallet är att ändra layouten för sidan så att de passar på en mobil. (Jag har testat så att det funkar med google chromes developer funktion och bytt till att köra sidan på en mobil)*/
 @media screen and (max-width:600px){
 	#wrapperIndex{
 		grid-template-columns:1fr;
@@ -432,6 +480,7 @@ footer{
 		"BildMerOmMobiler"
 		"Footer";
 	}
+	/*Gjorde så att animationen bara tar två sekunder om det är på en mobil istället för 5 sekunder eftersom det var för lång tid enligt mig.*/
 	#tesla:hover{
 	animation:teslakör 2s;
 	}
