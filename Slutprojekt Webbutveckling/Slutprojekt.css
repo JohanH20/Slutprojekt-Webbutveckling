@@ -204,7 +204,8 @@ figure > img{
 	/*Gör så att bilden har rundade hörn som har radien 3 em som är 300% av typsnittets höjd*/
 	border-radius:3em;
 }
-/*Anvädnder class selektor och typ selektor för att ändra alla labels i formuläret och alla legend*/
+/*Anvädnder class selektor(tänkte använda en typ selektor för label men eftersom det var ett krav i uppgiften och inte hade något annat bra ställe att använda en class selektor så använde jag det här) 
+och typ selektor för att ändra alla labels i formuläret och alla legend*/
 .mainFormulär label, legend{
 	color:white;
 }
