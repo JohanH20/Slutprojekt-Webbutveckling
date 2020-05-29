@@ -19,29 +19,39 @@
 		<!--Gör en div som ska vara en wrapper till sidan. För att lätt kunna ändra layout med t.ex. grid. Och jag gjorde så att den hade ett id och jag har döpt alla id så att jag vet vad det är för något, så att det är lättare att göra ändringar-->
 		<div id="wrapperIndex">
 			<!--Här startar headern som är högst upp i sidan-->
-			<header id="MainHeader">
-				<!--Gör en div till startsid länken för att kunna göra bättre design senare. Gjorde även en länk som går till index.html (startsidan)-->
-				<div><a href="Index.html">Startsida</a></div>
+			<header>
+				<!--Gör en div med en lista i, till startsid länken för att kunna göra bättre design senare. Gjorde även en länk som går till index.html (startsidan)-->
+				<div>
+					<ul>
+						<li><a href="Index.html">Startsida</a></li>
+					</ul>
+				</div>
 				<!--Gör en huvudrubrik till headern där det står vilken sida man är på-->
-				<h1 id="hmeny">Startsida</h1>
+				<h1>Startsida</h1>
 			<!--Stänger headern-->
 			</header>
 			<!--Gjorde en nav som är för att visa att det är en meny-->
 			<nav id="meny">
-				<!--Gjorde alla länkar till de olika huvudsidorna och divs runt dem-->
-				<div><a href="AI.html">AI</a></div>
-				<div><a href="Självkörandebilar.html">Självkörande bilar</a></div>
-				<div><a href="Datorer.html">Datorer</a></div>
-				<div><a href="Mobiler.html">Mobiler</a></div>
+				<!--Gjorde alla länkar till de olika huvudsidorna och divs runt dem och så att de är i en lista-->
+				<ul>
+					<li><a href="AI.html">AI</a></li>
+					<li><a href="Självkörandebilar.html">Självkörande bilar</a></li>
+					<li><a href="Datorer.html">Datorer</a></li>
+					<li><a href="Mobiler.html">Mobiler</a></li>
+				</ul>
 			<!--Stänger nav-->
 			</nav>
-			<!--Gör en main tag som visar att detta är huvuddelen av sidan. Jag gjorde två sådana eftersom jag tyckte att de båda är huvuddelen av sidan. Denna innehåller en länk till ett formulär och en lista-->
-			<main id="formulärochlista">
-				<div><a href="Formulär.html">Skapa ett konto</a></div>
+			<!--Gör en aside tag som visar att detta är en del som är vid sidan av hemsidan. Denna innehåller en länk till ett formulär och en lista-->
+			<aside>
+				<nav>
+					<ul>
+						<li><div><a href="Formulär.html">Skapa ett konto</a></div></li>
+					</ul>
+				</nav>
 				<!--Gjorde en andrarubrik som är till listan under-->
 				<h2>Kommande områden</h2>
-				<!--Gjorde en lista som är i ordning och startar på 1 och är skrivna i romerska siffror-->
-				<ol id="teknikområden" start="1" type="I">
+				<!--Gjorde en lista som är i ordning och startar på 1-->
+				<ol start="1">
 					<!--Deklarerar att detta är ett listitem och att det är en del av listan-->
 					<li>Rymdteknik</li>
 					<li>Flygteknik</li>
@@ -50,10 +60,11 @@
 					<li>Vattenkraftverk</li>
 				<!--stänger listan-->
 				</ol>
-			<!--Stänger main-->
-			</main>
+			<!--Stänger aside-->
+			</aside>
+			<!--Startar en main som bestämmer att detta är huvuddelen av hemsidan-->
 			<main id="mittenindex">
-				<h1 id="underrubrikindex">Välkommen till min hemsida</h1>
+				<h2>Välkommen till min hemsida</h2>
 				<!--Gör en ny paragraf-->
 				<p>Denna hemsidan är för att få flera intresserade i teknik, och lära även de som redan är intresserade.</p>
 				<p>
@@ -61,16 +72,17 @@
 					<!--Gör en länk med target _blank som betyder att den kommer öppna länken i en ny flik-->
 					<a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
 				</p>
+			<!--Stänger main-->
 			</main>
-			<div id="bildindex">
+			<figure>
 				<!--Gör en bild och bestämmer vilken bild det är och länkar den med src och sedan förklarar jag vad som är på bilden med alt, ifall den inte laddas in-->
-				<img src="https://p1.pxfuel.com/preview/452/151/685/delta-ii-heavy-rocket-nasa-cape-canaveral.jpg" alt="Bild på en raket som startar">
+				<img src="delta-ii-heavy-rocket-nasa-cape-canaveral.jpg" alt="Bild på en raket som startar">
 				<!--Gör så att en ljudfil kan spelas upp och controls gör så att man kan ändra volymen och pausa osv som användare-->
 				<audio controls>
 					<!--Detta deklarerar vilken fil som ska användas som ljudfil och vilken filtyp det är-->
 					<source src="574928main_houston_problem.mp3" type="audio/mpeg">
 				</audio>
-			</div>
+			</figure>
 			<!--Här startar footer som är foten till hemsidan och är längst ner på sidan och innehåller skaparen osv-->
 			<footer>
 				<p>Webbutvecklingsprojekt<br/>Skapat av: Johan Hasselblad</p>

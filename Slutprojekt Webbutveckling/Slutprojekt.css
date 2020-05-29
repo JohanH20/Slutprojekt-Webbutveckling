@@ -18,6 +18,19 @@
 		right:100vw;
 	}
 }
+/*Gör så att alla ol listor har romerska siffror som nummer*/
+ol{
+	list-style-type: upper-roman;
+}
+/*Jag gör ändringar för alla paragraf*/
+p{
+	color:white;
+	text-align:center;
+}
+/*Gör ändringar för alla element av denna grupp selektorns typer*/
+ol, dl, ul, h2{
+	color:white;
+}
 /*Jag gör så att alla av typen body har en svart bakgrund med en typ selektor*/
 body{
 	background-color:black;
@@ -35,7 +48,17 @@ footer{
 	/*Gör så att footer har en grid area som heter Footer*/
 	grid-area:Footer;
 }
-/*Gör ändringar för detta id med en id selektor*/
+main, article{
+	grid-area: huvuddel;
+	text-align:center;
+	background-color:rgb(40,40,40);
+}
+/*Gör ändringar för alla första bokstäver i paragraf som är i ett main eller article element*/
+main p::first-letter, article p::first-letter{
+	/*Gör så att texten är 30 px hög*/
+	font-size:30px;
+}
+/*Gör ändringar för detta id med en id selektor eftersom dessa ändringar bara ska vara i detta idt*/
 #wrapperIndex{
 	/*Gör så att den visar sin grid om den har en*/
 	display:grid;
@@ -47,10 +70,11 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"lokalmeny indexmitten indexbild"
+	"lokalmeny huvuddel bild"
 	"Footer Footer Footer";
 }
-#hmeny{
+/*Gör ändringar med typ selektor eftersom bara h1 används på ett ställe i varje sida så behövs ingen id selektor*/
+h1{
 	color:white;
 	text-align:center;
 	/*Gör så att elementet är 9% längre ifrån högra sidan av sitt föräldrar-element*/
@@ -60,23 +84,27 @@ footer{
 	/*Gör så att storleken på texten är 35 pixlar*/
 	font-size:35px;
 }
-#MainHeader{
+header{
 	display:grid;
 	grid-template-columns:0.1fr 9.9fr;
 	grid-area: head;
-	/*Gör så att bakgrunden för detta elementet är en bild*/
-	background:url("https://cdn.pixabay.com/photo/2020/02/22/17/53/communication-4871245_960_720.jpg");
+	/*Gör så att bakgrunden för detta elementet är en bild och denna bilen är nedladdad*/
+	background:url("communication-4871245_960_720.jpg");
 	/*Gör så att bakgrundens position är i mitten av elementet*/
 	background-position: center;
 }
-/*Gör så att alla div avkommor från id elementet är enligt följande krav, en så kallad avkomlingsselektor*/
-#MainHeader div{
-	text-align:center;
+/*Gör så att alla ul avkommor från id elementet är enligt följande krav, en så kallad avkomlingsselektor*/
+header ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+/*Gör detta så att hela bakgrunden i denna delen av headern är svart*/
+header div{
 	background-color:rgb(0,0,0);
-	padding:5px;
 }
 /*Gör så att alla länkar inom idt har dessa css egenskaperna*/
-#MainHeader a{
+header a{
 	/*Texten har ingen dekoration t.ex. så att en länk inte är blå om man inte har besökt sidan innan*/
 	text-decoration:none;
 	font-family:Menyer, sans-serif;
@@ -86,19 +114,15 @@ footer{
 	padding:30px;
 }
 /*Gör ändringar för när man håller över länken med musen eller om man har fokus på länken med tangentbordet*/
-#MainHeader a:hover, #MainHeader a:focus{
+header a:hover, header a:focus{
 	background-color:white;
 	color:black;
 }
+/*Måste använda en id selektor eftersom jag ska använda denna i en grid senare och kan därför inte ha två nav som blir olika grid areor.*/
 #meny{
-	display:grid;
-	grid-template-columns:1fr 1fr 1fr 1fr;
 	grid-area:nav;
 }
-#meny div{
-	text-align:center;
-	background-color:rgb(0,0,0);
-}
+/*Ändrar alla länkar i detta idt*/
 #meny a{
 	display:block;
 	font-family:Menyer, sans-serif;
@@ -106,99 +130,104 @@ footer{
 	text-decoration:none;
 	color: white;
 	padding:10px;
+	text-align:center;
 }
 #meny a:hover, #meny a:focus{
 	color: black;
 	background-color: white;
 }
-/*Gör samma ändringar för flera olika id element samtidigt. För att inte behöva skriva exakt samma kod flera gånger. Med en gruppselektor*/
-#formulärochlista, #lokalmenyAI, #lokalmenyDatorer, #lokalmenyMobilerochbild, #lokalmenyMerOmMobilerochlista{
+/*Gör en egen grid i denna nav och detta är ännu en anledning till att det behöver vara en id selektor*/
+#meny ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr 1fr;
+}
+#meny li{
+	display:inline;
+	float:left;
+}
+/*Gör samma ändringar för alla lokalmenyer samtidigt. För att inte behöva skriva exakt samma kod flera gånger. Med en typselektor*/
+aside{
 	grid-area: lokalmeny;
 	padding:0.5vw;
+	/*Anvädnder rgba för att välja färgen på bakgrunden rgba står för Red Green Blue Alpha och alpha är genomskinlighet där 0 är helt genomskinlig och 1 är helt synlig*/
 	background-color: rgba(203,203,203,0.8);
 }
-#formulärochlista div, #lokalmenyAI div, #lokalmenyDatorer div, #lokalmenyMobilerochbild div, #lokalmenyMerOmMobilerochlista div{
+aside div{
 	text-align:center;
 	background-color:#000000;
 }
-#formulärochlista a, #lokalmenyAI a, #lokalmenyDatorer a, #lokalmenyMobilerochbild a, #lokalmenyMerOmMobilerochlista a{
+aside a{
 	text-decoration:none;
 	display:block;
 	color: white;
 	padding:0.5em;
 }
-#formulärochlista a:hover, #lokalmenyAI a:hover, #lokalmenyDatorer a:hover, #lokalmenyMobilerochbild a:hover, #lokalmenyMerOmMobilerochlista a:hover, #formulärochlista a:focus, #lokalmenyAI a:focus, #lokalmenyDatorer a:focus, #lokalmenyMobilerochbild a:focus, #lokalmenyMerOmMobilerochlista a:focus{
+aside a:hover, aside a:focus{
 	background-color:white;
 	color:black;
 }
 /*Använde en syskonselektor för att sätta h2 i mitten*/
-#formulärochlista div ~ h2{
+aside nav ~ h2{
 	text-align:center;
 }
-/*Gör så att alla list items inom idt har dessa egenskaperna*/
-#teknikområden li{
+/*Gör så att alla list items inom idt har dessa egenskaperna. Jaag använder id selektor här för att jag inte ska ha den storleken på text i någon annan lista.*/
+aside li{
 	/*Textens storlek är 1.5 rem som är 1.5 gånger storleken av rot-elementet*/
 	font-size:1.5rem;
 }
-#mittenindex{
-	grid-area:indexmitten;
-	text-align:center;
-	background-color:rgb(40,40,40);
-}
+/*Anvädnder id selektor eftersom detta bara är på ett ställe*/
 #mittenindex p{
-	color: white;
 	/*Gör så att texten inom idt har marginal på 0.5 vw åt alla håll, 0.5vw är 0.5% av skärmens bredd åt*/
 	margin:0.5vw;
 }
-/*Gör så att länken är vit när den har varit besökt och innan den har blivit besökt*/
+/*Gör så att länken är vit och inte har någon dekoration när den har varit besökt och innan den har blivit besökt använder id selektor eftersom det bara är på en länk på första sidan*/
 #mittenindex a:visited, a:link{
 	color:white;
+	text-decoration:none;
 }
-/*Gör så att länken är grå när man håller över den och när den klickas*/
+/*Gör så att länken är grå när man håller över den och när den klickas, använder id selektor eftersom det bara ska ändras där*/
 #mittenindex a:hover, a:active{
 	color:grey;
 }
-#bildindex{
-	grid-area:indexbild;
+figure{
+	grid-area:bild;
+	/*Gör så att all text i figure är i mitten t.ex. sidan om AI*/
 	text-align:center;
 }
-/*Barnselektor för att alla biler som är inuti idts element ska ha följande egenskaper.*/
-#bildindex > img{
+/*Barnselektor för att alla biler som är inuti figure element ska ha följande egenskaper.*/
+figure > img{
 	/*Gör så att bildens bredd är 100% av föräldrar-elements bredd.*/
 	width:100%;
 	/*Gör så att bilden har rundade hörn som har radien 3 em som är 300% av typsnittets höjd*/
 	border-radius:3em;
 }
-#HFormulär{
-	color:white;
-	text-align:center;
-	font-family: Menyer, sans-serif;
-}
-#formulärheader{
-	background-color:rgb(60,60,60);
-	padding:2px;
-	grid-area: Formulärheader;
-}
-/*Använde en class selektor för att göra ändringar på mainFormulär*/
-.mainFormulär{
-	background-color:rgb(40,40,40);
-	grid-area:Mainformulär;
-	text-align:center;
-}
-.mainFormulär div{
-	margin:2%;
-}
-.mainFormulär label, #LegUppgifter, #LegFeedback{
+/*Anvädnder class selektor och typ selektor för att ändra alla labels i formuläret och alla legend*/
+.mainFormulär label, legend{
 	color:white;
 }
+/*Gör ändringar för textareor*/
+textarea{
+	/*Gör så att bredden är 30% av föräldrar-elementet*/
+	width: 30%;
+	/*gör så att höjden är 100px*/
+	height:100px;
+	/*Gör så att man inte kan ändra storleken på textarea rutan.*/
+	resize:none;
+}
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperFormulär{
 	display:grid;
 	grid-gap:10px;
 	grid-template-areas:
-	"Formulärheader"
-	"Mainformulär"
+	"head"
+	"nav"
+	"huvuddel"
 	"Footer";
 }
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperAI{
 	display:grid;
 	grid-gap:10px;
@@ -206,33 +235,17 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"lokalmeny ArtikelAI BildOchTextAI"
+	"lokalmeny huvuddel bild"
 	"Footer Footer Footer";
 }
-#artikelAI{
-	grid-area:ArtikelAI;
-	background-color:rgb(40,40,40);
-	padding:5px;
-}
-#BildochtextAI{
-	grid-area:BildOchTextAI;
-}
-#BildochtextAI figcaption, #teslaBild figcaption{
+figcaption{
 	color:white;
 }
-#Atlas{
-	width:100%;
-}
-#mittenindex, #artikelAI, #mainMerOmAI, #bilText, #datorerText, #codochtextMerOmDatorer, #textMobiler, #textMerOmMobiler{
-	color:white;
-	text-align:center;
-}
+/*Använde id selektor för att bara de två h2 ska ha detta typsnittet*/
 #mainMerOmAI h2, #artikelAI h2{
 	font-family: bitar , sans-serif;
 }
-#mittenindex p::first-letter, #mainMerOmAI p::first-letter, #artikelAI p::first-letter, #bilText p::first-letter, #datorerText p::first-letter, #codochtextMerOmDatorer p::first-letter, #textMobiler p::first-letter, #textMerOmMobiler p::first-letter{
-	font-size:30px;
-}
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperMerOmAI{
 	display:grid;
 	grid-gap:10px;
@@ -240,32 +253,16 @@ footer{
 	grid-template-areas:
 	"head head"
 	"nav nav"
-	"lokalmeny MainMerOmAI"
+	"lokalmeny huvuddel"
 	"Footer Footer ";
 }
-#mainMerOmAI{
-	grid-area:MainMerOmAI;
-	background-color:rgb(40,40,40);
-}
-#autopilotVideo{
-	grid-area:YoutubeTesla;
-	/*Anvädnder rgba för att välja färgen på bakgrunden rgba står för Red Green Blue Alpha och alpha är genomskinlighet där 0 är helt genomskinlig och 1 är helt synlig*/
-	background-color: rgba(203,203,203,0.8);
-}
 /*Gör ändringar för iframe som är i idt*/
-#autopilotVideo iframe{
+aside iframe{
 	width:90%;
 	height:80%;
 	margin:5%;
 }
-#bilText{
-	grid-area:BilText;
-	padding:5px;
-	background-color:rgb(40,40,40);
-}
-#teslaBild{
-	grid-area:TeslaBild;
-}
+/*Använder id selektor eftersom de här egenskaperna bara ska vara på denna bilden och eftersom jag ska göra så att denna bilden har en animation och den ska bara vara på denna bilden*/
 #tesla{
 	width:100%;
 	border-radius:2em;
@@ -277,6 +274,7 @@ footer{
 	/*Detta gör så att om du håller musen över bilden så körs animationen (teslakör) under en period på 5 sekunder*/
 	animation:teslakör 5s;
 }
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperSjälvkörandebilar{
 	display:grid;
 	grid-gap:10px;
@@ -284,20 +282,25 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"YoutubeTesla BilText TeslaBild"
+	"lokalmeny huvuddel bild"
 	"Footer Footer Footer";
 }
-#lokalmenyDatorer ul{
+/*Gör ändringar för alla ul element som är i ett nav element*/
+nav ul{
 	/*Gör så att listan inte har några markeringar som t.ex. de romerska siffrorna jag har på första sidans lista*/
 	list-style-type:none;
-	margin-right:10%;
+	text-align:center;
+	/*Gör så att listan inte har något marginal(för att få bort det stora hålet som blir till ovanför om listan annars)*/
+	margin:0;
+	/*Gör så att listan inte har något marginal(för att få bort det stora hålet som blir till vänster om listan annars)*/
+	padding:0;
 }
-#datorerText{
-	grid-area:DatorerText;
-	padding:0.5vw;
-	background-color:rgb(40,40,40);
+/*Gör ändringar för alla li som är inom ett nav element*/
+nav li{
+	font-size:1em;
 }
-#datorerTabell{
+/*Gör ändringar för alla tableller, men eftersom det bara finns 1 så använder jag typselektor istället för id*/
+table{
 	grid-area:DatorerTabell;
 	/*Gör så att tabellen har en ram som är en heltäckt linje och 3 pixlar bred.*/
 	border:3px solid;
@@ -305,18 +308,20 @@ footer{
 	/*Gör så att olika ramar sätts ihop så att det ser ut som samma ram*/
 	border-collapse:collapse;
 }
-#datorerTabell th, td{
+/*Gör ändringar för alla th och td element*/
+th, td{
 	border: 3px solid;
 	padding:2ex;
 	/*Gör så att texten är i toppen och mitten av varje tabell del*/
 	vertical-align:top;
 	text-align:center;
 }
-/*Gör så att alla jämna tabell raden och thead och tfoot har samma bakgrundsfärg*/
-#datorerTabell tr:nth-child(even), #datorerTabell thead, #datorerTabell tfoot{
+/*Gör så att alla jämna tabell raden och thead och tfoot har samma bakgrundsfärg, använder tr:nth-child för att varanan rad ska ändras*/
+tr:nth-child(even), thead, tfoot{
 	/*Använde hsla för att bestämma bakgrundsfärgen hsla står för Hue Saturation Lightness Alpha där alpha betyder samma som på rgba*/
 	background-color:hsla(0,0%,50%,1);
 }
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperDatorer{
 	display:grid;
 	grid-gap:10px;
@@ -324,22 +329,21 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"lokalmeny DatorerText DatorerTabell"
+	"lokalmeny huvuddel DatorerTabell"
 	"Footer Footer Footer";
 }
-#codochtextMerOmDatorer{
-	grid-area:CODOchTextMerOmDatorer;
-	padding:5px;
-	background-color:rgb(40,40,40);
-}
-#cod{
+/*Gör ändringar för alla video element*/
+video{
+	/*Gör så att bredden är 60% av föräldrar-elementet*/
 	width:60%;
 	/*Gör en transition för att göra videon bredare tills den blir 100% av föräldrar-elements bredd och det ska ta 2 sekunder att göra transitionen*/
 	transition:width 2s;
 }
-#cod:hover{
+/*Gör så att om man håller musen över en video(klickar om man är på mobil) så ändras bredden till 100% av föräldrar-elementet*/
+video:hover{
 	width:100%;
 }
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperMerOmDatorer{
 	display:grid;
 	grid-gap:10px;
@@ -347,24 +351,15 @@ footer{
 	grid-template-areas:
 	"head head"
 	"nav nav"
-	"lokalmeny CODOchTextMerOmDatorer"
+	"lokalmeny huvuddel"
 	"Footer Footer";
 }
-#textMobiler{
-	grid-area:TextMobiler;
-	background-color:rgb(40,40,40);
-	padding:5px;
-}
-#bildMobiler{
-	grid-area:BildMobiler;
-}
-#iphonex{
-	width:100%;
-}
+/*Använde id selektor eftersom jag inte ska ha samma storlek och marginal som andra bilder.*/
 #gammalmobil{
 	width:90%;
 	margin:5%;
 }
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperMobiler{
 	display:grid;
 	grid-gap:10px;
@@ -372,24 +367,14 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"lokalmeny TextMobiler BildMobiler"
+	"lokalmeny huvuddel bild"
 	"Footer Footer Footer";
 }
-/*Anvädnder angränsande syskonselektor för att sätta texten i mitten på h2*/
+/*Anvädnder angränsande syskonselektor för att sätta texten i mitten på h2, använder id selektor eftersom den inte används på alla andra platser*/
 #lokalmenyMerOmMobilerochlista div + h2{
 	text-align:center;
 }
-#textMerOmMobiler{
-	grid-area:TextMerOmMobiler;
-	background-color:rgb(40,40,40);
-	padding:5px;
-}
-#bildMerOmMobiler{
-	grid-area:BildMerOmMobiler;
-}
-#bildsmartphone{
-	width:100%;
-}
+/*Använder id selektor eftersom jag gör en wrapper som bara passar på denna sidan*/
 #wrapperMerOmMobiler{
 	display:grid;
 	grid-gap:10px;
@@ -397,19 +382,20 @@ footer{
 	grid-template-areas:
 	"head head head"
 	"nav nav nav"
-	"lokalmeny TextMerOmMobiler BildMerOmMobiler"
+	"lokalmeny huvuddel bild"
 	"Footer Footer Footer";
 }
-/*Om skärmens bredd är mindre än 600px bred så gör den följande sakerna. Som i detta fallet är att ändra layouten för sidan så att de passar på en mobil. (Jag har testat så att det funkar med google chromes developer funktion och bytt till att köra sidan på en mobil)*/
+/*Om skärmens bredd är mindre än 600px bred så gör den följande sakerna. Som i detta fallet är att ändra layouten för sidan så att de passar på en mobil. 
+(Jag har testat så att det funkar med google chromes developer funktion och bytt till att köra sidan på en mobil)*/
 @media screen and (max-width:600px){
 	#wrapperIndex{
 		grid-template-columns:1fr;
 		grid-template-areas:
 		"head"
 		"nav"
-		"indexmitten"
+		"huvuddel"
 		"lokalmeny"
-		"indexbild"
+		"bild"
 		"Footer";
 	}
 	#wrapperAI{
@@ -418,8 +404,8 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"ArtikelAI"
-		"BildOchTextAI"
+		"huvuddel"
+		"bild"
 		"Footer";
 	}
 	#wrapperMerOmAI{
@@ -428,7 +414,7 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"MainMerOmAI"
+		"huvuddel"
 		"Footer";
 	}
 	#wrapperSjälvkörandebilar{
@@ -436,9 +422,9 @@ footer{
 		grid-template-areas:
 		"head"
 		"nav"
-		"BilText"
-		"YoutubeTesla"
-		"TeslaBild"
+		"huvuddel"
+		"lokalmeny"
+		"bild"
 		"Footer";
 	}
 	#wrapperDatorer{
@@ -447,7 +433,7 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"DatorerText"
+		"huvuddel"
 		"DatorerTabell"
 		"Footer";
 	}
@@ -457,7 +443,7 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"CODOchTextMerOmDatorer"
+		"huvuddel"
 		"Footer";
 	}
 	#wrapperMobiler{
@@ -466,8 +452,8 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"TextMobiler"
-		"BildMobiler"
+		"huvuddel"
+		"bild"
 		"Footer";
 	}
 	#wrapperMerOmMobiler{
@@ -476,8 +462,8 @@ footer{
 		"head"
 		"nav"
 		"lokalmeny"
-		"TextMerOmMobiler"
-		"BildMerOmMobiler"
+		"huvuddel"
+		"bild"
 		"Footer";
 	}
 	/*Gjorde så att animationen bara tar två sekunder om det är på en mobil istället för 5 sekunder eftersom det var för lång tid enligt mig.*/

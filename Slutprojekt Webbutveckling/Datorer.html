@@ -8,25 +8,33 @@
 	</head>
 	<body>
 		<div id="wrapperDatorer">
-			<header id="MainHeader">
-				<div><a href="Index.html">Startsida</a></div>
-				<h1 id="hmeny">Datorer</h1>
+			<header>
+				<div>
+					<ul>
+						<li><a href="Index.html">Startsida</a></li>
+					</ul>
+				</div>
+				<h1>Datorer</h1>
 			</header>
 			<nav id="meny">
-				<div><a href="AI.html">AI</a></div>
-				<div><a href="Självkörandebilar.html">Självkörande bilar</a></div>
-				<div><a href="Datorer.html">Datorer</a></div>
-				<div><a href="Mobiler.html">Mobiler</a></div>
-			</nav>
-			<nav id="lokalmenyDatorer">
-				<!--Här startar en lista som inte är i någon ordning-->
 				<ul>
-					<!--i listan är är det en div och i den så finns det en länk. Detta har jag gjort för att ha en lokalmeny i form av en lista-->
-					<li><div><a href="MerOmDatorer.html">Mer om Datorer</a></div></li>
-				<!--Här stängs listan-->
+					<li><div><a href="AI.html">AI</a></div></li>
+					<li><div><a href="Självkörandebilar.html">Självkörande bilar</a></div></li>
+					<li><div><a href="Datorer.html">Datorer</a></div></li>
+					<li><div><a href="Mobiler.html">Mobiler</a></div></li>
 				</ul>
 			</nav>
-			<main id="datorerText">
+			<aside>
+				<nav>
+					<!--Här startar en lista som inte är i någon ordning-->
+					<ul>
+						<!--i listan är är det en div och i den så finns det en länk. Detta har jag gjort för att ha en lokalmeny i form av en lista-->
+						<li><div><a href="MerOmDatorer.html">Mer om Datorer</a></div></li>
+					<!--Här stängs listan-->
+					</ul>
+				</nav>
+			</aside>
+			<main>
 				<!--Här startar en section som jag använde för att lättare dela in dokumentet i olika delar-->
 				<section>
 					<h2>Datorer</h2>
@@ -43,7 +51,7 @@
 				</section>
 			</main>
 			<!--Här startar en tabell-->
-			<table id="datorerTabell">
+			<table>
 				<!--Detta är en rubrik för tabellen och den är skriven i en caption istället pga semantik-->
 				<caption>Några olika datorkomponenter</caption>
 				<!--Deklarerar att tabell headen startar här-->
